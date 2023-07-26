@@ -1,4 +1,4 @@
-package net.finalnothing.studentcalendar.courses;
+package net.finalnothing.studentcalendar.events;
 
 import lombok.Getter;
 
@@ -7,13 +7,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Getter
-public class CreateCourseRequest implements Serializable {
+public class UpdateEventRequest implements Serializable {
+    private LocalDate occursOn;
     private String name;
-    private String color;
-    private String weekday;
     private LocalTime fromTime;
     private LocalTime toTime;
-    private LocalDate validFrom;
-    private LocalDate validUntil;
     private String location;
 }

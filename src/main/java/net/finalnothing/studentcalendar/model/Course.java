@@ -6,6 +6,8 @@ import lombok.*;
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -33,7 +35,12 @@ public class Course {
 
     private LocalTime toTime;
 
+    private LocalDate validFrom;
+
     private LocalDate validUntil;
 
     private String location;
+
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    private List<Event> events;
 }

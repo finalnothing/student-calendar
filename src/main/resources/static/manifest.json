@@ -1,15 +1,15 @@
 {
   "entry:src/main.imba?web": {
-    "url": "./assets\\main.M4YBJRVQ.js",
-    "path": "C:\\Projects\\master\\student-calendar-frontend\\dist\\assets\\main.M4YBJRVQ.js"
+    "url": "./assets\\main.ER2X6GFS.js",
+    "path": "C:\\Projects\\master\\student-calendar\\frontend\\dist\\assets\\main.ER2X6GFS.js"
   },
   "*?css": {
-    "url": "./assets\\index.6W4SRNUB.css",
-    "path": "C:\\Projects\\master\\student-calendar-frontend\\dist\\assets\\index.6W4SRNUB.css"
+    "url": "./assets\\index.WQ1YW2JS.css",
+    "path": "C:\\Projects\\master\\student-calendar\\frontend\\dist\\assets\\index.WQ1YW2JS.css"
   },
   "./index.html": {},
-  "./assets\\main.M4YBJRVQ.js": {},
-  "./assets\\main.BXIAQH4D.css": {},
-  "./assets\\index.6W4SRNUB.css": {},
+  "./assets\\main.ER2X6GFS.js": {},
+  "./assets\\main.MAW36OMV.css": {},
+  "./assets\\index.WQ1YW2JS.css": {},
   "main": "index.html"
 }

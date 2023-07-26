@@ -1,10 +1,8 @@
 package net.finalnothing.studentcalendar.users;
 
 import net.finalnothing.studentcalendar.model.User;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -20,29 +18,23 @@ public class UserController {
     }
 
     @GetMapping
-    public List<User> list() {
-        return (List<User>) userRepository.findAll();
+    public List<UserResponse> list() {
+        return userRepository.findAll().stream().map(UserResponse::new).toList();
     }
 
     @PostMapping
-    public User create(@RequestBody CreateUserRequest request) {
+    public UserResponse create(@RequestBody CreateUserRequest request) {
         var user = User.builder()
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .username(request.getUsername())
                 .build();
         userRepository.save(user);
-        return user;
+        return new UserResponse(user);
     }
 
-    @GetMapping("/{id}")
-    public User details(@PathVariable long id) throws Exception {
-        var user = userRepository.findById(id);
-
-        if (user.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "user not found");
-        }
-
-        return user.get();
+    @GetMapping("/me")
+    public UserResponse details(User user) throws Exception {
+        return new UserResponse(user);
     }
 }

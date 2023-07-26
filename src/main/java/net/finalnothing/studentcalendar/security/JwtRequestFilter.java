@@ -27,7 +27,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             HttpServletResponse response,
             FilterChain filterChain
     ) throws ServletException, IOException {
-        final String requestTokenHeader = request.getHeader("Authorization");
+        final String requestTokenHeader = request.getHeader("authorization");
         if (requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {
             var jwtToken = requestTokenHeader.substring(7);
             try {

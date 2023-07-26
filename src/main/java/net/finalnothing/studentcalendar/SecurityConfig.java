@@ -33,11 +33,13 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests((auth) -> auth.requestMatchers("/api/v1/auth/token").permitAll()
+        http.authorizeHttpRequests((auth) -> auth
+                .requestMatchers("/api/v1/auth/token").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/v1/users").permitAll()
-                .requestMatchers("/", "/index.html", "/manifest.json", "/assets/*").permitAll()
-                .anyRequest().authenticated());
+                .requestMatchers("/api/**").authenticated()
+                .anyRequest().permitAll());
         http.csrf().disable();
+        http.cors();
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
